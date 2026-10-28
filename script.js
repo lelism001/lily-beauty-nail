@@ -34,16 +34,29 @@ if (typeof document !== "undefined") {
     navToggle.addEventListener("click", () => {
       isOpen = toggleNavState(isOpen);
       siteNav.classList.toggle("is-open", isOpen);
+      if (!isOpen) siteNav.classList.remove("showing-contact");
       navToggle.setAttribute("aria-expanded", String(isOpen));
     });
 
     siteNav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
+        if (link.classList.contains("contact-trigger") && window.innerWidth < 768) {
+          // Handled separately: swaps the menu content instead of closing it.
+          return;
+        }
         isOpen = false;
         siteNav.classList.remove("is-open");
+        siteNav.classList.remove("showing-contact");
         navToggle.setAttribute("aria-expanded", "false");
       });
     });
+
+    const mobileContactBack = siteNav.querySelector(".mobile-contact-back");
+    if (mobileContactBack) {
+      mobileContactBack.addEventListener("click", () => {
+        siteNav.classList.remove("showing-contact");
+      });
+    }
   }
 
   document.querySelectorAll("[data-carousel]").forEach((carousel) => {
@@ -160,6 +173,20 @@ if (typeof document !== "undefined") {
 
     contactTriggers.forEach((trigger) => {
       trigger.addEventListener("click", (e) => {
+        if (window.innerWidth < 768) {
+          const mobileNav = document.getElementById("site-nav");
+          if (mobileNav && mobileNav.contains(trigger)) {
+            // Inside the open hamburger menu: swap the link list for the
+            // 3 contact options in place, instead of closing the menu and
+            // popping open a separate (awkwardly positioned) popover.
+            e.preventDefault();
+            mobileNav.classList.add("showing-contact");
+            return;
+          }
+          // Elsewhere on mobile (e.g. footer), the bottom bar already offers
+          // 電話/LINE/Instagram at all times, so just fall back to the link.
+          return;
+        }
         e.preventDefault();
         const wasOpenForThisTrigger =
           contactPopover.classList.contains("open") &&

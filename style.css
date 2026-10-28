@@ -1152,6 +1152,92 @@ body.has-bottom-bar {
     gap: 1.5rem;
   }
 
+  .mobile-contact-menu {
+    display: none;
+  }
+
+  .site-nav.showing-contact ul,
+  .site-nav.showing-contact > .contact-trigger {
+    display: none;
+  }
+
+  .site-nav.showing-contact .mobile-contact-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .mobile-contact-back {
+    background: none;
+    border: none;
+    color: var(--ink-light);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  }
+
+  .mobile-contact-back:hover,
+  .mobile-contact-back:active,
+  .mobile-contact-back:focus-visible {
+    background: var(--bg-alt);
+    color: var(--gold);
+    transform: translateX(-3px);
+  }
+
+  .mobile-contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 300px;
+    padding: 0.95rem 1.5rem;
+    border-radius: 999px;
+    background: var(--bg-alt);
+    color: var(--ink);
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+    box-shadow: 0 4px 12px rgba(166, 134, 79, 0.12);
+    transition: background 0.35s ease, color 0.25s ease, transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .mobile-contact-item svg {
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: color 0.25s ease, transform 0.25s ease;
+  }
+
+  .mobile-contact-item:hover,
+  .mobile-contact-item:focus-visible {
+    background: var(--gradient-primary);
+    color: #fff;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(154, 110, 82, 0.3);
+  }
+
+  .mobile-contact-item:hover svg,
+  .mobile-contact-item:focus-visible svg {
+    color: #fff;
+    transform: scale(1.12);
+  }
+
+  .mobile-contact-item:active {
+    background: var(--gradient-primary-hover);
+    color: #fff;
+    transform: scale(0.96);
+    box-shadow: 0 2px 6px rgba(154, 110, 82, 0.25);
+  }
+
+  .mobile-contact-item:active svg {
+    color: #fff;
+  }
+
   .nav-toggle {
     display: flex;
   }
