@@ -1251,8 +1251,15 @@ body.has-bottom-bar {
     display: flex;
   }
 
+  .hero-content {
+    padding: 0 1.25rem;
+  }
+
+  /* Keep the headline on one line: scale the font with the screen width
+     (the text is about 11.4em wide) and never exceed 2.8rem. */
   .hero h1 {
-    font-size: 2.8rem;
+    font-size: min(2.8rem, calc((100vw - 2.5rem) / 11.5));
+    white-space: nowrap;
   }
 
   .hero-sub-jp {
