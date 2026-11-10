@@ -76,7 +76,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 0.6rem 2rem;
   background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid var(--border);
 }
@@ -87,7 +87,7 @@ ul {
 }
 
 .logo img {
-  height: 48px;
+  height: 72px;
   width: auto;
   display: block;
 }
@@ -1131,9 +1131,13 @@ body.has-bottom-bar {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .logo img {
+    height: 56px;
+  }
+
   .site-nav {
     position: fixed;
-    top: 64px;
+    top: 76px;
     left: 0;
     right: 0;
     bottom: 0;
