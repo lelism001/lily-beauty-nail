@@ -1124,6 +1124,11 @@ body.has-bottom-bar {
   margin: 0;
 }
 
+/* Mobile-only contact menu (shown inside the hamburger menu) */
+.mobile-contact-menu {
+  display: none;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .site-nav {
